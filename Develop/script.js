@@ -1,7 +1,7 @@
 // Assignment code here
 var specialCharactersArray = ["!", "?", "@", "$", "#", "%", "*"];
-var numberChoiceArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var lowerCaseChoiceArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numberArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var userChoices = [];
 
@@ -20,18 +20,19 @@ var passwordPrompts = function(){
 
   var numberChoice = window.confirm("Would you like to include numbers?");
     if (numberChoice === true) {
-      userChoices = userChoices.concat(numberChoice);
+      userChoices = userChoices.concat(numberArray);
     }
 
   var lowerCaseChoice = window.confirm("Would you like to include lower case?");
     if (lowerCaseChoice === true) {
-      userChoices = userChoices.concat(lowerCaseChoice);
+      userChoices = userChoices.concat(lowerCaseArray);
     }
 
   var upperCaseChoice = window.confirm("Would you like to include upper case?");
     if (upperCaseChoice === true) {
-      userChoices = userChoices.concat(upperCaseChoice);
+      userChoices = userChoices.concat(upperCaseArray);
     }
+    console.log(userChoices);
 
   if (specialChoice === false && numberChoice === false && lowerCaseChoice === false && upperCaseChoice === false) {
     window.alert("You need to choose at least 1 character type");
