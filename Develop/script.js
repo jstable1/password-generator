@@ -1,5 +1,5 @@
 // Assignment code here
-var specialCharactersArray = ["!", "?", "@", "$", "#", "%", "*"];
+var specialCharactersArray = ["!", "?", "@", "$", "#", "%", "*", "<", ">", ".", "(", ")", "&", "+", "-", "/", "="];
 var numberArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -12,6 +12,8 @@ var passwordPrompts = function(){
     window.alert("You need to provide a valid answer! Please try again.");
     return;
   }
+
+  userChoices = [];
 
   var specialChoice = window.confirm("Would you like to include special characters?");
     if (specialChoice === true) {
@@ -32,17 +34,26 @@ var passwordPrompts = function(){
     if (upperCaseChoice === true) {
       userChoices = userChoices.concat(upperCaseArray);
     }
-    console.log(userChoices);
 
   if (specialChoice === false && numberChoice === false && lowerCaseChoice === false && upperCaseChoice === false) {
     window.alert("You need to choose at least 1 character type");
     return;
   }
+
+  return promptLength
 }
 
-
 var generatePassword = function(){
-  passwordPrompts();
+  var promptLength = passwordPrompts();
+
+  var passwordArray = []; 
+
+  for (var i = 0; i < promptLength; i++){
+    var randomNumber = Math.floor(Math.random()*userChoices.length)
+    passwordArray.push(userChoices[randomNumber])
+  };
+
+  return passwordArray.join("");
 }
 
 
